@@ -45,10 +45,5 @@ logs/
 *.swp
 *.swo
 
-# Application-specific files
-application*.properties
-application*.yml
 
-# Sensitive data
-config/application*.properties
-config/application*.yml
+
