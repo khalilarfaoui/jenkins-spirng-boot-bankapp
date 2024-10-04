@@ -1,26 +1,40 @@
 pipeline {
     agent any
-    tools {
-        maven 'Maven' 
-    }
-    environment {
-        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64'
-    }
+    
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/khalilarfaoui/jenkins-spirng-boot-bankapp.git'  // URL de votre projet
+                git url: 'https://github.com/mon-utilisateur/mon-projet.git', branch: 'main'
             }
         }
+        
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                script {
+                    // Exécute le build Maven
+                    sh 'mvn clean install'
+                }
             }
         }
+        
         stage('Test') {
             steps {
-                sh 'mvn test'
+                script {
+                    // Exécute les tests Maven
+                    sh 'mvn test'
+                }
             }
         }
+        
+        stage('Package') {
+            steps {
+                script {
+                    // Emballe l'application en JAR/WAR
+                    sh 'mvn package'
+                }
+            }
+        }
+        
+       
     }
 }
