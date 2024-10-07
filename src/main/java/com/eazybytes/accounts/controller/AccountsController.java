@@ -104,7 +104,7 @@ public class AccountsController {
     )
     @GetMapping("/test-change")
     public String fetchAccountDetails() {
-        return "Khalil arfaoui test 2 :))))))))!";
+        return "!!!!!!!!!!!!!!!!!!!";
     }
 
     @Operation(
