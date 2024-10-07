@@ -25,5 +25,23 @@ pipeline {
                 sh 'mvn package'
             }
         }
+
+        stage('Deploy Locally') {
+            steps {
+                sh '''
+                   cp target/*.jar /root/deployment/mon-application.jar
+                   bash /root/deployment/start.sh
+                   '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Déploiement réussi sur le VPS (local) !'
+        }
+        failure {
+            echo 'Le déploiement a échoué.'
+        }
     }
 }

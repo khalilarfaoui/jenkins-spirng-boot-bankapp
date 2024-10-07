@@ -1,5 +1,6 @@
 package com.eazybytes.accounts;
 
+import com.eazybytes.accounts.entity.BaseEntity;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
@@ -37,6 +38,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 public class AccountsApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(AccountsApplication.class, args);
 	}
 
