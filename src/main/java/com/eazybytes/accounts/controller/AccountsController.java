@@ -88,6 +88,25 @@ public class AccountsController {
         return ResponseEntity.status(HttpStatus.OK).body(customerDto);
     }
 
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    }
+    )
+    @GetMapping("/test-change")
+    public String fetchAccountDetails() {
+        return "Hello :) !";
+    }
+
     @Operation(
             summary = "Update Account Details REST API",
             description = "REST API to update Customer &  Account details based on a account number"
