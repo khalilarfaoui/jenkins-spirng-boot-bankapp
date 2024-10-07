@@ -29,8 +29,8 @@ pipeline {
         stage('Deploy Locally') {
             steps {
                 sh '''
-                   cp target/*.jar /root/deployment/mon-application.jar
-                   bash /root/deployment/start.sh
+                   cp target/accounts-0.0.1-SNAPSHOT.jar /opt/deployment/mon-application.jar
+                   bash /opt/deployment/start.sh
                    '''
             }
         }
